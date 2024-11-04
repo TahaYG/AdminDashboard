@@ -1,0 +1,88 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+    Layout = "";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Log in</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css">
+</head>
+<body class="hold-transition login-page" style="background-image: url('../../bluebg.jpg');">
+    <div class="login-box" style="width:580px; height:580px; background-image: url('../../bluebg.jpg');margin-top: 50px;margin-left: 0px;">
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary" style="width:580px; height:580px; background-image: url('../../bluebg.jpg'); text-align: left;">
+            <!-- İçerik buraya gelecek -->
+            <div class="card-header text-center">
+                <p  class="h1"><b>Admin</b>Dashboard</p>
+            </div>
+            <div class="card-body" style="padding-bottom: 0px;padding-top: 50px;">
+                <p class="login-box-msg" style="color:aliceblue;">Sign in to start your session</p>
+
+                <section>
+                    <form id="account" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-floating">
+                            <label asp-for="Input.Email" class="form-label" style="color:aliceblue;"></label>
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating">
+                            <label asp-for="Input.Password" class="form-label" style="color:aliceblue;"></label>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div>
+                            <div class="checkbox">  
+                                <label asp-for="Input.RememberMe" class="form-label" style="margin-left: 20px; color:aliceblue">
+                                    <input class="form-check-input" asp-for="Input.RememberMe" style="margin-left: -20;" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                        </div>
+                        <div>
+                            <p>
+                                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                            </p>
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/dist/js/demo.js"></script>
+</body>
+</html>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
